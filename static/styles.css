@@ -1,7 +1,16 @@
+@font-face {
+    font-family: 'YaleNew-Bold';
+    src: url('/css/webfont/YaleNew-Bold.eot') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 nav .navbar-brand
 {
     /* size for brand */
     font-size: xx-large;
+    font-family: 'YaleNew-Bold';
 }
 
 h1 {
