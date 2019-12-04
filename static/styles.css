@@ -19,6 +19,12 @@ nav .navbar-brand
     font-family: 'YaleNew-Bold';
 }
 
+.title{
+font-family: 'YaleNew-Bold';
+color: #00356b;
+font-size: 40px;
+
+}
 .about {
 font-family: 'YaleNew-Roman';
 color: black;
