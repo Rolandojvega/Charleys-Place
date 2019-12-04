@@ -13,8 +13,31 @@
 <h1>TODAY'S LUNCH MENU @ CHARLEY'S PLACE</h1>
 <p>Monday - Friday 11:00 AM - 1:30 PM</p>
 <h2>Al Forno</h2>
-
+<table>
+    <tbody>
+    {% for dish in menu %}
+        <tr>
+            <td>{{ #menu-item-1 }}</td>
+            <td>{{ #ingredients-1 }}</td>
+            <td>{{ #menu-item-2 }}</td>
+            <td>{{ #ingredients-2 }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
 <h2>Wok</h2>
+<table>
+    <tbody>
+    {% for dish in menu %}
+        <tr>
+            <td>{{ #menu-item-3 }}</td>
+            <td>{{ #ingredients-3 }}</td>
+            <td>{{ #menu-item-4 }}</td>
+            <td>{{ #ingredients-4 }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
 
 <h2>Salad & Sandwiches</h2>
 
