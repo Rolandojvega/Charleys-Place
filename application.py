@@ -73,7 +73,7 @@ def dashboard():
 
 @app.route("/about", methods=["GET"])
 def about():
-    """dashboard for admin"""
+    """Show about information"""
     if request.method == "GET":
         return render_template("about.html")
 
