@@ -11,15 +11,13 @@
         <tr>
           <th scope="col">Dish</th>
           <th scope="col">Rating</th>
-          <th scope="col"># of reviews</th>
         </tr>
       </thead>
       <tbody>
         {% for row in top %}
         <tr>
-            <td>{{ row['dish'] }}</td>
-            <td>{{ row['rating'] }}</td>
-            <td>{{ row['number'] }}</td>
+            <td>{{ row['name'] }}</td>
+            <td>{{ row['avg_rating'] }}</td>
         </tr>
         {% endfor %}
       </tbody>
@@ -31,15 +29,13 @@
         <tr>
           <th scope="col">Dish</th>
           <th scope="col">Rating</th>
-          <th scope="col"># of reviews</th>
         </tr>
       </thead>
       <tbody>
         {% for row in bottom %}
         <tr>
-            <td>{{ row['dish'] }}</td>
-            <td>{{ row['rating'] }}</td>
-            <td>{{ row['number'] }}</td>
+            <td>{{ row['name'] }}</td>
+            <td>{{ row['avg_rating'] }}</td>
         </tr>
         {% endfor %}
       </tbody>

@@ -52,8 +52,11 @@ def dashboard():
     """dashboard for admin"""
     if request.method == "GET":
         # Query database for top 5
-        top = db.execute(SELECT )
-        return render_template("dashboard.html")
+        top = db.execute("SELECT * FROM dishes WHERE avg_rating IS NOT NULL ORDER BY avg_rating DESC LIMIT 5")
+        print(top)
+        # Query database for bottom 5
+        bottom = db.execute("SELECT * FROM dishes WHERE avg_rating IS NOT NULL ORDER BY avg_rating ASC LIMIT 5")
+        return render_template("dashboard.html", top = top, bottom = bottom)
     else:
         return apology("TODO")
 
