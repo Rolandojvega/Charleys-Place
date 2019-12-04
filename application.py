@@ -24,7 +24,7 @@ def after_request(response):
     return response
 
 # Custom filter
-app.jinja_env.filters["usd"] = usd
+# app.jinja_env.filters["usd"] = usd
 
 # Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_FILE_DIR"] = mkdtemp()
@@ -46,11 +46,16 @@ def home():
     #return apology("TODO")
 
 
-@app.route("/rate", methods=["GET", "POST"])
+@app.route("/dashboard", methods=["GET", "POST"])
 @login_required
-def rate():
-    """rate on menu item"""
-    return apology("TODO")
+def dashboard():
+    """dashboard for admin"""
+    if request.method == "GET":
+        # Query database for top 5
+        top = db.execute(SELECT )
+        return render_template("dashboard.html")
+    else:
+        return apology("TODO")
 
 
 @app.route("/history")
