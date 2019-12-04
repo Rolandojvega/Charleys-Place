@@ -23,9 +23,20 @@
   </div>
 
 
-{% if not dishname %}
+
+  {% for i in Dict %}
+      {% for key in Dict %}
+
+          <h3>{{ key }}</h3>
+
+          <h3>{{ dictionary[key] }}</h3>
+    {% endfor %}
+  {% endfor %}
+
+
 
 <form action="/create" method="post">
+
         <div class="form-group">
             <input autocomplete="off" autofocus class="form-control" name="dishname" placeholder="dishname" type="text">
         </div
@@ -35,11 +46,7 @@
         <button class="btn btn-primary" type="submit">Add</button>
     </form>
 
-{% else %}
 
-   {{ dishname }}
-   {{ ingredients }}
 
-{% endif %}
 
 {% endblock %}

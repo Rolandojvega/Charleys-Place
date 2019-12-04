@@ -61,13 +61,15 @@ def create():
         return render_template("create.html")
 
     else:
-        dishname=request.form.get("dishname")
-        ingredients=request.form.get("ingredients")
-
+        Dict = { "Burger" : Test, "Hotdog" : Test}
+        dishname = request.form.get("dishname")
+        ingredients =  request.form.get("ingredients")
+        Dict.update( {'dishname' : ingredients} )
+        print(Dict)
         if dishname == None:
             return
         else:
-            return render_template("create.html",ingredients = ingredients, dishname = dishname)
+            return render_template("create.html", Dict = Dict)
 
 
 @app.route("/login", methods=["GET", "POST"])
