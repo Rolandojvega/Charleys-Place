@@ -35,6 +35,13 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///charley.db")
 
+@app.route("/")
+def homepage():
+    """Show todays menu"""
+    # Redirect user to menu
+    return redirect("/home")
+
+
 
 @app.route("/home")
 def home():
@@ -63,6 +70,13 @@ def dashboard():
         return render_template("dashboard.html", top = top, bottom = bottom)
     else:
         return apology("TODO")
+
+@app.route("/about", methods=["GET"])
+def about():
+    """dashboard for admin"""
+    if request.method == "GET":
+        return render_template("about.html")
+
 
 
 @app.route("/create", methods=["GET", "POST"])
