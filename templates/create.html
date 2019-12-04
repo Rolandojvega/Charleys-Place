@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Create
+{% endblock %}
+
+
+{% block main %}
+<div>
+        <button type="CreateMenu" class="btn btn-primary">Create Menu</button>
+</div>
+
+<div>
+    <form>
+
+    <div class="form-group">
+    <label for="Foodtypes"></label>
+    <select class="form-control" id="Foodtypes">
+      <option>Al Forno</option>
+      <option>Wok</option>
+      <option>Salad & Sandwiches</option>
+    </select>
+  </div>
+
+
+{% if not dishname %}
+
+<form action="/create" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="dishname" placeholder="dishname" type="text">
+        </div
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="ingredients" placeholder="ingredients" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Add</button>
+    </form>
+
+{% else %}
+
+   {{ dishname }}
+   {{ ingredients }}
+
+{% endif %}
+
+{% endblock %}
