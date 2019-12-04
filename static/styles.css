@@ -3,7 +3,13 @@
     src: url('/css/webfont/YaleNew-Bold.eot') format('embedded-opentype');
     font-weight: normal;
     font-style: normal;
+}
 
+@font-face {
+    font-family: 'YaleNew-Roman';
+    src: url('/css/webfont/YaleNew-Roman.eot') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 nav .navbar-brand
@@ -14,13 +20,17 @@ nav .navbar-brand
 }
 
 h1 {
-
-font-family: Arial;
+font-family: 'YaleNew-Bold';
 color: blue;
 font-size: 35;
-
 }
-/* colors for brand */
+
+.about {
+font-family: 'YaleNew-Roman';
+color: black;
+}
+
+/* Yale Blue */
 nav .navbar-brand .blue
 {
     color: #00356b;
