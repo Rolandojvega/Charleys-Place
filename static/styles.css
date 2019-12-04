@@ -1,7 +1,16 @@
+@font-face {
+    font-family: 'YaleNew-Bold';
+    src: url('/css/webfont/YaleNew-Bold.eot') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 nav .navbar-brand
 {
     /* size for brand */
     font-size: xx-large;
+    font-family: 'YaleNew-Bold';
 }
 
 h1 {
@@ -14,19 +23,7 @@ font-size: 35;
 /* colors for brand */
 nav .navbar-brand .blue
 {
-    color: #537fbe;
-}
-nav .navbar-brand .red
-{
-    color: #ea433b;
-}
-nav .navbar-brand .yellow
-{
-    color: #f5b82e;
-}
-nav .navbar-brand .green
-{
-    color: #2e944b;
+    color: #00356b;
 }
 
 main .form-control
