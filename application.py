@@ -43,8 +43,7 @@ def home():
     if request.method == "GET":
         # Query database
         #dishes = db.execute("SELECT * FROM dishes JOIN menu_details ON ID = dish_ID WHERE menu_ID = 1")
-        menu = db.execute("SELECT name FROM dishes WHERE ID IN (SELECT dish_ID FROM menu_details WHERE menu_ID = 1)")
-        #print(dishes)
+        menu = db.execute("SELECT * FROM dishes WHERE ID IN (SELECT dish_ID FROM menu_details WHERE menu_ID = 1)")
 
         print(menu)
         return render_template("home.html", menu = menu)
