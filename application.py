@@ -38,12 +38,18 @@ db = SQL("sqlite:///charley.db")
 
 
 @app.route("/home")
-@login_required
 def home():
     """Show todays menu"""
-    return render_template("home.html")
+    if request.method == "GET":
+        # Query database
+        #dishes = db.execute("SELECT * FROM dishes JOIN menu_details ON ID = dish_ID WHERE menu_ID = 1")
+        menu = db.execute("SELECT name FROM dishes WHERE ID IN (SELECT dish_ID FROM menu_details WHERE menu_ID = 1)")
+        #print(dishes)
 
-    #return apology("TODO")
+        print(menu)
+        return render_template("home.html", menu = menu)
+    else:
+        return apology("TODO")
 
 
 @app.route("/dashboard", methods=["GET", "POST"])
