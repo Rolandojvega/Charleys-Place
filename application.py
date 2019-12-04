@@ -33,7 +33,6 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure CS50 Library to use SQLite database
-#test
 db = SQL("sqlite:///charley.db")
 
 
@@ -66,11 +65,26 @@ def dashboard():
         return apology("TODO")
 
 
-@app.route("/history")
+@app.route("/create", methods=["GET", "POST"])
 @login_required
-def history():
-    """Show history of transactions"""
-    return apology("TODO")
+def create():
+    """Show menu creation form"""
+
+    if request.method == "GET":
+        return render_template("create.html")
+
+    else:
+
+        Dict = {}
+        dishname = request.form.get("dishname")
+        ingredients =  request.form.get("ingredients")
+        userinput = {dishname : ingredients}
+        Dict.update( userinput )
+        print(Dict)
+        #if dishname == None:
+            #return
+        #else:
+        return render_template("create.html", Dict = Dict)
 
 
 @app.route("/login", methods=["GET", "POST"])
