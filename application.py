@@ -24,7 +24,7 @@ def after_request(response):
     return response
 
 # Custom filter
-app.jinja_env.filters["usd"] = usd
+# app.jinja_env.filters["usd"] = usd
 
 # Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_FILE_DIR"] = mkdtemp()
@@ -45,11 +45,19 @@ def home():
     #return apology("TODO")
 
 
-@app.route("/rate", methods=["GET", "POST"])
+@app.route("/dashboard", methods=["GET", "POST"])
 @login_required
-def rate():
-    """rate on menu item"""
-    return apology("TODO")
+def dashboard():
+    """dashboard for admin"""
+    if request.method == "GET":
+        # Query database for top 5
+        top = db.execute("SELECT * FROM dishes WHERE avg_rating IS NOT NULL ORDER BY avg_rating DESC LIMIT 5")
+        print(top)
+        # Query database for bottom 5
+        bottom = db.execute("SELECT * FROM dishes WHERE avg_rating IS NOT NULL ORDER BY avg_rating ASC LIMIT 5")
+        return render_template("dashboard.html", top = top, bottom = bottom)
+    else:
+        return apology("TODO")
 
 
 @app.route("/create", methods=["GET", "POST"])
@@ -61,15 +69,17 @@ def create():
         return render_template("create.html")
 
     else:
-        Dict = { "Burger" : Test, "Hotdog" : Test}
+
+        Dict = {}
         dishname = request.form.get("dishname")
         ingredients =  request.form.get("ingredients")
-        Dict.update( {'dishname' : ingredients} )
+        userinput = {dishname : ingredients}
+        Dict.update( userinput )
         print(Dict)
-        if dishname == None:
-            return
-        else:
-            return render_template("create.html", Dict = Dict)
+        #if dishname == None:
+            #return
+        #else:
+        return render_template("create.html", Dict = Dict)
 
 
 @app.route("/login", methods=["GET", "POST"])

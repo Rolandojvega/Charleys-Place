@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block main %}
+    <h3>Top 5 Performing Dishes</h3>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Dish</th>
+          <th scope="col">Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in top %}
+        <tr>
+            <td>{{ row['name'] }}</td>
+            <td>{{ row['avg_rating'] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+        <h3>Bottom 5 Performing Dishes</h3>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Dish</th>
+          <th scope="col">Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in bottom %}
+        <tr>
+            <td>{{ row['name'] }}</td>
+            <td>{{ row['avg_rating'] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endblock %}
