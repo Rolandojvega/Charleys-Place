@@ -82,7 +82,54 @@ def about():
     if request.method == "GET":
         return render_template("about.html")
 
+@app.route("/form", methods=["GET", "POST"])
+#@login_required
+def form():
+    """capture menu inputs"""
+    # User reached route via POST (as by submitting a form via POST)
 
+    if request.method == "POST":
+
+        C1 = request.form.get("category1")
+        D1 = request.form.get("dish1")
+        O1 = request.form.get("country1")
+        I1 = request.form.get("ingredient1")
+
+        C2 = request.form.get("category2")
+        D2 = request.form.get("dish2")
+        O2 = request.form.get("country2")
+        I2 = request.form.get("ingredient2")
+
+        C3 = request.form.get("category3")
+        D3 = request.form.get("dish3")
+        O3 = request.form.get("country3")
+        I3 = request.form.get("ingredient3")
+
+        comment = request.form.get("comment")
+        today = datetime.date.today().strftime("%Y-%m-%d")
+        print(today)
+        db.execute("INSERT INTO dishes (name, ingredients, type, country_of_origin) VALUES (:dish, :ingredients, :category, :country)", dish = D1, ingredients = I1, country = O1, category = C1)
+        db.execute("INSERT INTO dishes (name, ingredients, type, country_of_origin) VALUES (:dish, :ingredients, :category, :country)", dish = D2, ingredients = I2, country = O2, category = C2)
+        db.execute("INSERT INTO dishes (name, ingredients, type, country_of_origin) VALUES (:dish, :ingredients, :category, :country)", dish = D3, ingredients = I3, country = O3, category = C3)
+
+        D1_ID = db.execute("SELECT ID FROM dishes WHERE name = :dish AND creation_date = :date", dish = D1, date = today)
+        D2_ID = db.execute("SELECT ID FROM dishes WHERE name = :dish AND creation_date = :date", dish = D2, date = today)
+        D3_ID = db.execute("SELECT ID FROM dishes WHERE name = :dish AND creation_date = :date", dish = D3, date = today)
+        print(D1_ID[0]['ID'])
+
+        db.execute("INSERT INTO menu_master (menu_comment) VALUES (:comt)", comt = comment)
+        menu_ID = db.execute("SELECT ID FROM menu_master WHERE menu_date = :date AND menu_comment = :comt", comt = comment, date = today)
+        print(menu_ID[0]['ID'])
+
+        db.execute("INSERT INTO menu_details (menu_ID, dish_ID) VALUES (:menu_id, :dish_id)", menu_id = menu_ID[0]['ID'], dish_id = D1_ID[0]['ID'])
+        db.execute("INSERT INTO menu_details (menu_ID, dish_ID) VALUES (:menu_id, :dish_id)", menu_id = menu_ID[0]['ID'], dish_id = D2_ID[0]['ID'])
+        db.execute("INSERT INTO menu_details (menu_ID, dish_ID) VALUES (:menu_id, :dish_id)", menu_id = menu_ID[0]['ID'], dish_id = D3_ID[0]['ID'])
+
+
+
+        return render_template("complete.html")
+    else:
+        return render_template("form.html")
 
 @app.route("/create", methods=["GET", "POST"])
 @login_required

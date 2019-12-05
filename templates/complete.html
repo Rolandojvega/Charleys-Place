@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Complete
+{% endblock %}
+
+
+
+
+
+{% block main %}
+
+<img src="http://image.message.yale.edu/lib/fe4415707564057c751577/m/1/1decfc55-62e6-4e86-b618-15f5ddf4b516.png" width = 150 alt = "Yale SOM" title = "Charley's Place">
+
+<div id="title">
+<h1>Charley's Place Menu</h1>
+</div>
+
+<h2>{{ today }}</h2>
+<p>Monday - Friday 11:00 AM - 1:30 PM</p>
+
+<h2>Al Forno</h2>
+<p>
+    {% for row in menu %}
+        {% if row['type'] == 'Al Forno' %}
+
+            {{ row['name'] }}
+            <br>
+            {{ row['ingredients'] }}
+            <br>
+            {{ row['country_of_origin'] }}
+            <br>
+            <br>
+
+        {% endif %}
+    {% endfor %}
+
+</p>
+
+<h2>Wok</h2>
+<p>
+    {% for row in menu %}
+        {% if row['type'] == 'Wok' %}
+
+            {{ row['name'] }}
+            <br>
+            {{ row['ingredients'] }}
+            <br>
+            {{ row['country_of_origin'] }}
+            <br>
+            <br>
+
+        {% endif %}
+    {% endfor %}
+</p>
+
+<h2>Salad & Sandwiches</h2>
+
+<p>
+    {% for row in menu %}
+        {% if row['type'] == 'Salad & Sandwiches' %}
+
+            {{ row['name'] }}
+            <br>
+            {{ row['ingredients'] }}
+            <br>
+            {{ row['country_of_origin'] }}
+            <br>
+            <br>
+
+        {% endif %}
+    {% endfor %}
+</p>
+
+
+
+
+{% endblock %}
