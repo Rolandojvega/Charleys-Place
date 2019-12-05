@@ -15,58 +15,19 @@
 
 <h5>Menu for {{ today }}</h5>
 <div class ="dishes">
-<h4>Al Forno</h4>
-<i>
+
     {% for row in menu %}
-        {% if row['type'] == 'Al Forno' %}
 
+    <h4>{{ row['type'] }}</h4>
+
+        <p>
             {{ row['name'] }}
-            <br>
+        </p>
+        <i>
             {{ row['ingredients'] }}
-            <br>
             {{ row['country_of_origin'] }}
-            <br>
-            <br>
-
-        {% endif %}
+        </i>
     {% endfor %}
-
-</i>
-
-<h4>Wok</h4>
-<i>
-    {% for row in menu %}
-        {% if row['type'] == 'Wok' %}
-
-            {{ row['name'] }}
-            <br>
-            {{ row['ingredients'] }}
-            <br>
-            {{ row['country_of_origin'] }}
-            <br>
-            <br>
-
-        {% endif %}
-    {% endfor %}
-</i>
-
-<h4>Salad & Sandwiches</h4>
-
-<i>
-    {% for row in menu %}
-        {% if row['type'] == 'Salad & Sandwiches' %}
-
-            {{ row['name'] }}
-            <br>
-            {{ row['ingredients'] }}
-            <br>
-            {{ row['country_of_origin'] }}
-            <br>
-            <br>
-
-        {% endif %}
-    {% endfor %}
-</i>
 </div>
 </section>
 

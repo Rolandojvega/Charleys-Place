@@ -126,7 +126,7 @@ def form():
 
 
 
-        return render_template("home.html")
+        return render_template("complete.html")
     else:
         return render_template("form.html")
 
