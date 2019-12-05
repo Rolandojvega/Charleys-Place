@@ -28,7 +28,10 @@ font-size: 35;
 .about {
 font-family: 'YaleNew-Roman';
 color: black;
+text-align: left;
 }
+
+
 
 /* Yale Blue */
 nav .navbar-brand .blue
