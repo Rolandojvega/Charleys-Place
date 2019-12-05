@@ -19,12 +19,12 @@ nav .navbar-brand
     font-family: 'YaleNew-Bold';
 }
 
-h1 {
+.title{
 font-family: 'YaleNew-Bold';
-color: blue;
-font-size: 35;
-}
+color: #00356b;
+font-size: 40px;
 
+}
 .about {
 font-family: 'YaleNew-Roman';
 color: black;
@@ -61,4 +61,18 @@ main img
 {
     /* constrain images on small screens */
     max-width: 100%;
+}
+
+.menu
+{
+    font-family: 'Times New Roman';
+}
+
+.dishes
+{
+    padding: 5px;
+}
+h4
+{
+  text-decoration: underline;
 }

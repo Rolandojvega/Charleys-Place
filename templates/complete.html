@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Home
+    Complete
 {% endblock %}
 
 
@@ -9,14 +9,18 @@
 
 
 {% block main %}
-<img src="http://image.message.yale.edu/lib/fe4415707564057c751577/m/1/1decfc55-62e6-4e86-b618-15f5ddf4b516.png" width = 700 alt = "Charleys Place" title = "Charley's Place">
-<section class ="menu">
-<i>Monday - Friday 11:00 AM - 1:30 PM</i>
 
-<h5>Menu for {{ today }}</h5>
-<div class ="dishes">
-<h4>Al Forno</h4>
-<i>
+<img src="http://image.message.yale.edu/lib/fe4415707564057c751577/m/1/1decfc55-62e6-4e86-b618-15f5ddf4b516.png" width = 300 alt = "Yale SOM" title = "Charley's Place">
+
+<div id="title">
+<h1>Charley's Place Menu</h1>
+</div>
+
+<h2>{{ today }}</h2>
+<p>Monday - Friday 11:00 AM - 1:30 PM</p>
+
+<h2>Al Forno</h2>
+<p>
     {% for row in menu %}
         {% if row['type'] == 'Al Forno' %}
 
@@ -31,10 +35,10 @@
         {% endif %}
     {% endfor %}
 
-</i>
+</p>
 
-<h4>Wok</h4>
-<i>
+<h2>Wok</h2>
+<p>
     {% for row in menu %}
         {% if row['type'] == 'Wok' %}
 
@@ -48,11 +52,11 @@
 
         {% endif %}
     {% endfor %}
-</i>
+</p>
 
-<h4>Salad & Sandwiches</h4>
+<h2>Salad & Sandwiches</h2>
 
-<i>
+<p>
     {% for row in menu %}
         {% if row['type'] == 'Salad & Sandwiches' %}
 
@@ -66,9 +70,8 @@
 
         {% endif %}
     {% endfor %}
-</i>
-</div>
-</section>
+</p>
+
 
 
 

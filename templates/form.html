@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Create Menu Form
+{% endblock %}
+
+{% block main %}
+    <form action="/form" method="post">
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Category</th>
+              <th scope="col">Dish Name</th>
+              <th scope="col">Country of Origin</th>
+              <th scope="col">Ingredients</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <select class="form-control" name ="category1">
+                          <option selected>Al Forno</option>
+                          <option>Wok</option>
+                          <option>Salad & Sandwiches</option>
+                        </select>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input autocomplete="off" autofocus class="form-control" name="dish1" placeholder="Dish Name" type="text">
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input autocomplete="off" autofocus class="form-control" name="country1" placeholder="Country" type="text">
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input autocomplete="off" autofocus class="form-control" name="ingredient1" placeholder="Ingredients" type="text">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <select class="form-control" name ="category2">
+                          <option>Al Forno</option>
+                          <option selected>Wok</option>
+                          <option>Salad & Sandwiches</option>
+                        </select>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input autocomplete="off" autofocus class="form-control" name="dish2" placeholder="Dish Name" type="text">
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input autocomplete="off" autofocus class="form-control" name="country2" placeholder="Country" type="text">
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input autocomplete="off" autofocus class="form-control" name="ingredient2" placeholder="Ingredients" type="text">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <select class="form-control" name ="category3">
+                          <option>Al Forno</option>
+                          <option>Wok</option>
+                          <option selected>Salad & Sandwiches</option>
+                        </select>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input autocomplete="off" autofocus class="form-control" name="dish3" placeholder="Dish Name" type="text">
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input autocomplete="off" autofocus class="form-control" name="country3" placeholder="Country" type="text">
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input autocomplete="off" autofocus class="form-control" name="ingredient3" placeholder="Ingredients" type="text">
+                    </div>
+                </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="comment" placeholder="comment (dont leave blank)" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Add</button>
+    </form>
+
+{% endblock %}
