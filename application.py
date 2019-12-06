@@ -53,10 +53,7 @@ def home():
         #dishes = db.execute("SELECT * FROM dishes JOIN menu_details ON ID = dish_ID WHERE menu_ID = 1")
         menu = db.execute("SELECT * FROM dishes WHERE ID IN (SELECT dish_ID FROM menu_details WHERE menu_ID IN(SELECT MAX(menu_ID) FROM menu_details))")
         today = datetime.date.today().strftime("%B %d, %Y")
-        print(today)
 
-
-        print(menu)
         return render_template("home.html", menu = menu, today = today)
     else:
         return apology("TODO")
@@ -89,13 +86,13 @@ def form():
 
     if request.method == "POST":
 
-        test0 = request.form.get("dishn")
+        test0 = request.form.get("10")
         print("LOOK HERE!!!!!!!!!!!!!", test0)
-        test1 = request.form.get("dish 1")
-        print(test1)
-        test2 = request.form.get("dish 2")
+        test1 = request.form
+        print("SECOND", test1)
+        test2 = request.form.get("11")
         print(test2)
-
+        """
         C1 = request.form.get("category1")
         D1 = request.form.get("dish1")
         O1 = request.form.get("country1")
@@ -127,7 +124,7 @@ def form():
         db.execute("INSERT INTO menu_details (menu_ID, dish_ID) VALUES (:menu_id, :dish_id)", menu_id = menu_ID[0]['ID'], dish_id = D1_ID[0]['ID'])
         db.execute("INSERT INTO menu_details (menu_ID, dish_ID) VALUES (:menu_id, :dish_id)", menu_id = menu_ID[0]['ID'], dish_id = D2_ID[0]['ID'])
         db.execute("INSERT INTO menu_details (menu_ID, dish_ID) VALUES (:menu_id, :dish_id)", menu_id = menu_ID[0]['ID'], dish_id = D3_ID[0]['ID'])
-
+        """
         return render_template("complete.html")
     else:
         return render_template("form.html")

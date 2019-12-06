@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block main %}
+<!--
     <form action="/form" method="post">
         <table class="table table-sm">
           <thead>
@@ -105,16 +106,15 @@
         <button class="btn btn-primary" type="submit">Add</button>
 
     </form>
-
+-->
   <!-- ------------------------------------------------------------------------------------------------------------------------------------ -->
 
 <section class = "padding">
         <form id="MenuForm" method="post" class="form-horizontal">
 
-        <div class="form-group">
-            <div class ="row dishn">
+        <div class="form-group row" name ="row1">
                 <div class="col-sm">
-                    <select class="form-control" name ="category 1" placeholder = "Category"/>
+                    <select class="form-control" name ="category1" placeholder = "Category"/>
                       <option>Al Forno</option>
                       <option >Wok</option>
                       <option>Salad & Sandwiches</option>
@@ -123,28 +123,24 @@
                 </div>
 
                 <div class="col-sm">
-                    <input type="text" class="form-control" placeholder = "Dish" name="dish 1" />
+                    <input type="text" class="form-control" placeholder = "Dish" name="dish1" />
                 </div>
 
                 <div class="col-sm">
-                    <input type="text" class="form-control" placeholder = "Country" name="country 1" />
+                    <input type="text" class="form-control" placeholder = "Country" name="country1" />
                 </div>
 
                 <div class="col-sm">
-                    <input type="text" class="form-control" placeholder = "Ingredients" name="ingredients 1" />
+                    <input type="text" class="form-control" placeholder = "Ingredients" name="ingredients1" />
                 </div>
 
                 <div class="col-sm-1">
                     <button type="button" class="btn btn-default addDish"><i class="fa fa-plus"></i></button>
-                </div>
             </div>
         </div>
 
         <!-- The option field template containing an option field and a Remove button -->
-        <div class="form-group invisible" id="dishTemplate">
-            <div class ="row dishn">
-
-
+        <div class="form-group row invisible" id="dishTemplate">
                 <div class="col-sm">
                     <select class="form-control" name ="category" placeholder = "Category"/>
                       <option>Al Forno</option>
@@ -169,7 +165,6 @@
                 <div class="col-sm-1">
                     <button type="button" class="btn btn-default removeDish"><i class="fa fa-minus"></i></button>
                 </div>
-            </div>
         </div>
 
         <div class="form-group">
