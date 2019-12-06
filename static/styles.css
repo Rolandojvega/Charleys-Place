@@ -39,22 +39,14 @@ nav .navbar-brand .blue
     color: #00356b;
 }
 
-main .form-control
-{
-    /* center form controls */
-    display: inline-block;
-
-    /* override Bootstrap's 100% width for form controls */
-    width: auto;
-}
 
 main
 {
     /* scroll horizontally as needed */
     overflow-x: auto;
 
-    /* center contents */
-    text-align: center;
+    /* center contents
+    text-align: center;*/
 }
 
 main img

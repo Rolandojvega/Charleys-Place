@@ -103,6 +103,39 @@
             <input autocomplete="off" autofocus class="form-control" name="comment" placeholder="comment (dont leave blank)" type="text">
         </div>
         <button class="btn btn-primary" type="submit">Add</button>
+
+    </form>
+        <form id="surveyForm" method="post" class="form-horizontal">
+
+        <div class="form-group">
+            <div class ="row">
+
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control" name="option[]" />
+                </div>
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-default addButton"><i class="fa fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- The option field template containing an option field and a Remove button -->
+        <div class="form-group invisible" id="optionTemplate">
+            <div class ="row">
+                <div class="col-sm-offset-3 col-sm-5">
+                    <input class="form-control" type="text" name="option[]" />
+                </div>
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-default removeButton"><i class="fa fa-minus"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-5 col-sm-offset-3">
+                <button type="submit" class="btn btn-default">Validate</button>
+            </div>
+        </div>
     </form>
 
 {% endblock %}
