@@ -10,13 +10,6 @@ $(document).ready(function() {
                 validating: 'glyphicon glyphicon-refresh'
             },
             fields: {
-                question: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The question required and cannot be empty'
-                        }
-                    }
-                },
                 'option[]': {
                     validators: {
                         notEmpty: {
