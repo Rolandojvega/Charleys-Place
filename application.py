@@ -86,12 +86,12 @@ def form():
 
     if request.method == "POST":
 
-        test0 = request.form.get("10")
-        print("LOOK HERE!!!!!!!!!!!!!", test0)
-        test1 = request.form
-        print("SECOND", test1)
-        test2 = request.form.get("11")
-        print(test2)
+        menu_inputs = request.form
+        print(menu_inputs,"thats the end")
+        for i in menu_inputs:
+            print(i)
+
+
         """
         C1 = request.form.get("category1")
         D1 = request.form.get("dish1")
