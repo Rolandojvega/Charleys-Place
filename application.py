@@ -56,7 +56,7 @@ def home():
 
         return render_template("home.html", menu = menu, today = today)
     else:
-        return apology("TODO")
+        return apology("Sorry, no menu today.")
 
 
 @app.route("/dashboard", methods=["GET", "POST"])
@@ -77,6 +77,12 @@ def about():
     """Show about information"""
     if request.method == "GET":
         return render_template("about.html")
+
+@app.route("/suggestions", methods=["GET", "POST"])
+def suggestions():
+    """Show suggestions form"""
+    if request.method == "GET":
+        return render_template("suggestions.html")
 
 @app.route("/form", methods=["GET", "POST"])
 @login_required
