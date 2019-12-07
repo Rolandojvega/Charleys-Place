@@ -1,0 +1,38 @@
+ {% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+<h1 class=title>How are we doing?</h1>
+<p class=about>We're always working to improve your experience with our website, so we'd love to hear what's working and what we
+can do better.</p>
+<br>
+<p class=about><strong>This isn't a way to contact the Charley's Place management team, though.</strong> For that, please use the
+official <a href="https://hospitality.yale.edu/feedback" target="_blank">Yale Hospitality Feedback Form </a>to share your comments, questions,
+and suggestions about your dining experience at Charley's Place.</p>
+<br>
+<p class=about>Your web team,</p>
+<p class=about><i>Sid, Rolando, and James</i></p>
+<br>
+<form>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">What's your feedback about?</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+              <option>Product Feedback</option>
+              <option>Report a Bug</option>
+              <option>Other</option>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">What could we do better?</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+{% endblock %}

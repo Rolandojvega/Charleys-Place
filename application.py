@@ -7,6 +7,8 @@ from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
 import datetime
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
 
 from helpers import apology, login_required, lookup, usd
@@ -44,8 +46,7 @@ def homepage():
     return redirect("/home")
 
 
-
-@app.route("/home")
+@app.route("/home", methods=["GET", "POST"])
 def home():
     """Show todays menu"""
     if request.method == "GET":
@@ -83,6 +84,7 @@ def suggestions():
     """Show suggestions form"""
     if request.method == "GET":
         return render_template("suggestions.html")
+
 
 @app.route("/form", methods=["GET", "POST"])
 @login_required
@@ -159,6 +161,13 @@ def login():
     else:
         return render_template("login.html")
 
+#@app.route("/like/<int:dish_id>/action")
+#def like_action(dish_id, action):
+#    """Likes for dishes"""
+#    post =
+#    if action == 'like':
+#    if action == 'dislike':
+#    return redirect()
 
 @app.route("/logout")
 def logout():
@@ -222,3 +231,17 @@ def errorhandler(e):
 # Listen for errors
 for code in default_exceptions:
     app.errorhandler(code)(errorhandler)
+
+#message = Mail(
+#    from_email='from_email@example.com',
+#    to_emails='james.lavela@yale.edu',
+#    subject='Feedback on Charleys-Place Web App',
+#    html_content='<strong></strong>')
+#try:
+#    sg = SendGridAPIClient(os.environ.get('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'))
+#    response = sg.send(message)
+#    print(response.status_code)
+#    print(response.body)
+#    print(response.headers)
+#except Exception as e:
+#    print(e.message)
