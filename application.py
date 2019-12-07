@@ -109,7 +109,12 @@ def form():
 
         return render_template("complete.html")
     else:
-        return render_template("form.html")
+        countrylist = db.execute("SELECT * FROM country_list")
+        print("HEAR ME NOW HEAR ME NOW",countrylist[2])
+        print("HEAR ME NOW HEAR ME NOW",countrylist[2]['Country'])
+
+
+        return render_template("form.html",countrylist = countrylist)
 
 
 @app.route("/login", methods=["GET", "POST"])

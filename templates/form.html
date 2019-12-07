@@ -31,11 +31,11 @@
 
             <div class="form-group row" name ="row1">
                 <div class="col-sm">
-                    <select class="form-control" name ="category" placeholder = "Category"/>
-                      <option>Al Forno</option>
-                      <option >Wok</option>
-                      <option>Salad & Sandwiches</option>
-                      <option selected> </option>
+                    <select class="form-control selectpicker" data-live-search = "true" name ="category" placeholder = "Category"/>
+                      <option data-tokens ="Al Forno">Al Forno</option>
+                      <option data-tokens ="Wok">Wok</option>
+                      <option data-tokens ="Salad & Sandwiches">Salad & Sandwiches</option>
+                      <option data-tokens =""></option>
                     </select>
                 </div>
 
@@ -44,7 +44,12 @@
                 </div>
 
                 <div class="col-sm">
-                    <input type="text" class="form-control" placeholder = "Country" name="country" />
+                     <select class="form-control selectpicker" data-live-search = "true" name ="country" placeholder = "country of origin"/>
+                     {% for row in countrylist %}
+                      <option data-tokens ={{ row['Country'] }}>{{ row['Country'] }}</option>
+                     {% endfor %}
+                      <option selected data-tokens =""></option>
+                    </select>
                 </div>
 
                 <div class="col-sm">
@@ -59,11 +64,11 @@
             <!-- The option field template containing an option field and a Remove button -->
             <div class="form-group row invisible" id="dishTemplate">
                 <div class="col-sm">
-                    <select class="form-control" name ="category" placeholder = "Category"/>
-                      <option>Al Forno</option>
-                      <option >Wok</option>
-                      <option>Salad & Sandwiches</option>
-                      <option selected> </option>
+                    <select class="form-control selectpicker" data-live-search = "true" name ="category" placeholder = "Category"/>
+                      <option data-tokens ="Al Forno">Al Forno</option>
+                      <option data-tokens ="Wok">Wok</option>
+                      <option data-tokens ="Salad & Sandwiches">Salad & Sandwiches</option>
+                      <option selected data-tokens =""></option>
                     </select>
                 </div>
 
@@ -72,7 +77,12 @@
                 </div>
 
                 <div class="col-sm">
-                    <input type="text" class="form-control" placeholder = "Country" name="country" />
+                    <select class="form-control selectpicker" data-live-search = "true" name ="country" placeholder = "country of origin"/>
+                     {% for row in countrylist %}
+                      <option data-tokens ={{ row['Country'] }}>{{ row['Country'] }}</option>
+                     {% endfor %}
+                      <option selected data-tokens =""></option>
+                    </select>
                 </div>
 
                 <div class="col-sm">
