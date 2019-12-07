@@ -9,7 +9,7 @@
 
 
 {% block main %}
-<img src="http://image.message.yale.edu/lib/fe4415707564057c751577/m/1/1decfc55-62e6-4e86-b618-15f5ddf4b516.png" width = 700 alt = "Charleys Place" title = "Charley's Place">
+<img src="http://image.message.yale.edu/lib/fe4415707564057c751577/m/1/1decfc55-62e6-4e86-b618-15f5ddf4b516.png" width = 600 alt = "Charleys Place" title = "Charley's Place">
 <section class ="menu">
 <i>Monday - Friday 11:00 AM - 1:30 PM</i>
 
@@ -20,11 +20,13 @@
 
     <h4>{{ row['type'] }}</h4>
 
-        <p>
+        <b>
             {{ row['name'] }}
-        </p>
+        </b>
+        <br>
         <i>
             {{ row['ingredients'] }}
+        <br>
             {{ row['country_of_origin'] }}
         </i>
     {% endfor %}
