@@ -13,10 +13,10 @@ $(document).ready(function() {
                                 .attr('name','row'+i)
                                 .insertBefore($template);
 
-                $('div[name="row' + i + '"]').find("select[name ='category']").attr('name','category'+i);
+               /* $('div[name="row' + i + '"]').find("select[name ='category']").attr('name','category'+i);
                 $('div[name="row' + i + '"]').find("input[name ='dish']").attr('name','dish'+i);
                 $('div[name="row' + i + '"]').find("input[name ='country']").attr('name','country'+i);
-                $('div[name="row' + i + '"]').find("input[name ='ingredients']").attr('name','ingredients'+i);
+                $('div[name="row' + i + '"]').find("input[name ='ingredients']").attr('name','ingredients'+i); */
                 i++;
 
         })
