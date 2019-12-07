@@ -111,26 +111,6 @@ def form():
     else:
         return render_template("form.html")
 
-@app.route("/create", methods=["GET", "POST"])
-@login_required
-def create():
-    """Show menu creation form"""
-
-    if request.method == "GET":
-        return render_template("create.html")
-
-    else:
-
-        Dict = {}
-        dishname = request.form.get("dishname")
-        ingredients =  request.form.get("ingredients")
-        userinput = {dishname : ingredients}
-        Dict.update( userinput )
-        #if dishname == None:
-            #return
-        #else:
-        return render_template("create.html", Dict = Dict)
-
 
 @app.route("/login", methods=["GET", "POST"])
 def login():

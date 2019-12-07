@@ -72,3 +72,9 @@ h4
 {
     padding: 20px;
 }
+
+#header
+{
+    border-bottom-style: dashed;
+    border-color: #00356b;
+}
