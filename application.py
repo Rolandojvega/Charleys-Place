@@ -11,7 +11,7 @@ import datetime
 #from sendgrid.helpers.mail import Mail
 
 
-from helpers import apology, login_required, lookup
+from helpers import apology, login_required
 
 # Configure application
 app = Flask(__name__)
@@ -27,8 +27,6 @@ def after_request(response):
     response.headers["Pragma"] = "no-cache"
     return response
 
-# Custom filter
-# app.jinja_env.filters["usd"] = usd
 
 # Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_FILE_DIR"] = mkdtemp()
@@ -63,7 +61,7 @@ def home():
 @app.route("/dashboard", methods=["GET", "POST"])
 @login_required
 def dashboard():
-    """dashboard for admin"""
+    """Dashboard for admin"""
     if request.method == "GET":
         # Query database for top 5
         top = db.execute("SELECT * FROM dishes WHERE avg_rating IS NOT NULL ORDER BY avg_rating DESC LIMIT 5")
@@ -163,11 +161,11 @@ def login():
 
 #@app.route("/like/<int:dish_id>/action")
 #def like_action(dish_id, action):
-#    """Likes for dishes"""
-#    post =
-#    if action == 'like':
-#    if action == 'dislike':
-#    return redirect()
+#     """Likes for dishes"""
+#   # if action == 'like':
+
+#     if action == 'dislike':
+#         return redirect()
 
 @app.route("/logout")
 def logout():

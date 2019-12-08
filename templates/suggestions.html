@@ -16,7 +16,7 @@ and suggestions about your dining experience at Charley's Place.</p>
 <p class=about>Your web team,</p>
 <p class=about><i>Sid, Rolando, and James</i></p>
 <br>
-<form>
+<form id="email">
     <div class="form-group">
         <label for="exampleFormControlInput1">Email address</label>
         <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
@@ -31,8 +31,14 @@ and suggestions about your dining experience at Charley's Place.</p>
     <br>
     <div class="form-group">
         <label for="exampleFormControlTextarea1">What could we do better?</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea class="form-control" id="form_body" rows="3"></textarea>
     </div>
-    <button class="btn btn-primary" type="submit">Submit</button>
+    <button class="btn btn-primary" onclick="send_email()" type="submit">Submit</button>
 </form>
+<script>
+    function send_email(){
+        var email_string="<a href='mailto:james.lavela@yale.edu?subject=Charleys-Place Website Feedback&body="+document.getElementById("form_body").value+"'>Click to send email</a>"
+        document.getElementById("email").innerHTML=email_string
+    }
+</script>
 {% endblock %}
