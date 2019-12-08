@@ -11,7 +11,7 @@ import datetime
 #from sendgrid.helpers.mail import Mail
 
 
-from helpers import apology, login_required, lookup, usd
+from helpers import apology, login_required, lookup
 
 # Configure application
 app = Flask(__name__)
