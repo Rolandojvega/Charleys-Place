@@ -8,6 +8,8 @@
 {% block main %}
 <!--<img src="http://image.message.yale.edu/lib/fe4415707564057c751577/m/1/1decfc55-62e6-4e86-b618-15f5ddf4b516.png" width = 600 alt = "Charleys Place" title = "Charley's Place">-->
 <h1 class="title">Today's Menu</h1>
+
+
 <section class ="menu">
 <i>Monday - Friday 11:00 AM - 1:30 PM</i>
 
@@ -28,16 +30,9 @@
         <br>
             {{ row['country_of_origin'] }}
         </i>
-        <br>
-        <b>Rating:</b>
-
-        <form method="post" action="/complete">
-        <button type="submit" onclick="like()" input id="likebutton" name=like value={{ row['ID'] }} class="btn like_button"><i class="fa fa-thumbs-up"></i></button>
-        <button type="submit" onclick="dislike()" input id="dislikebutton" name=dislike value={{ row['ID'] }} class="btn dislike_button"><i class="fa fa-thumbs-down"></i></button>
-
-        </form>
 
         </div>
+
 
     </div>
         <br>
@@ -49,6 +44,21 @@
     {% endfor %}
 </div>
 </section>
+<br>
+<br>
+                <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                    <h4>Rate Todays Menu</h4>
+                        <form id="myform" action="/home" method="post">
+                            <input type="checkbox" class="form-check-input" value="Like" name="rating" id="checkbox-like" />
+                            <label for="checkbox-like">Like</label>
+                            &emsp;&emsp;&emsp;
+                            <input type="checkbox" class="form-check-input" value="Dislike" name="rating" id="checkbox-dislike" />
+                            <label for="checkbox-dislike">Dislike</label>
+                            <br>
+                            <button type="submit" class="btn btn-primary btn-lg">Submit Rating</button>
+                        </form>
+                </div>
+
 
 
 
