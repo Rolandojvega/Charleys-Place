@@ -64,9 +64,11 @@ def complete():
         print(menu[0]['MAX(menu_ID)'])
 
         if like == None:
-            db.execute("INSERT INTO feedback (dish_ID, menu_ID, like_dislike) VALUES (12, :current, -1)", current = current)
+            dish_ID = dislike
+            db.execute("INSERT INTO feedback (dish_ID, menu_ID, like_dislike) VALUES (:dish_ID, :current, -1)", current = current, dish_ID = dish_ID)
         else:
-            db.execute("INSERT INTO feedback (dish_ID, menu_ID, like_dislike) VALUES (12, :current, 1)", current = current)
+            dish_ID = like
+            db.execute("INSERT INTO feedback (dish_ID, menu_ID, like_dislike) VALUES (:dish_ID, :current, 1)", current = current, dish_ID = dish_ID)
         return render_template("complete.html")
 
 
