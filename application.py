@@ -73,11 +73,15 @@ def complete():
 
             ratings_count = num_oldlikes + num_olddislikes + 1
             avg = round((num_oldlikes / ratings_count),2)*100
+            new_dislikes = num_olddislikes + 1
+
 
             print(avg)
             print(ratings_count)
+            print(new_dislikes)
 
-            db.execute("UPDATE dishes SET avg_rating = :avg, count_reviews = :count_reviews WHERE ID = :dish_ID", avg = avg, count_reviews = ratings_count, dish_ID = dish_ID)
+
+            db.execute("UPDATE dishes SET avg_rating = :avg,  dislikes = :dislikes, count_reviews = :count_reviews WHERE ID = :dish_ID", avg = avg, dislikes = new_dislikes, count_reviews = ratings_count, dish_ID = dish_ID)
 
 
         else:

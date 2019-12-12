@@ -14,7 +14,6 @@ To create the menu we needed to seek input on dishes which would be on the menu 
 In the form we used several input field types such as dropdown lists for “country of origin” for which we linked the select dropdown menu to the database which had the list of all countries using jinja loops.
 As an enhancement we wanted to add the live search feature in the lengthy dropdowns to improve the user experience. We could successfully make it work using a bootstrap open source JS library for a single row of dish input. But unfortunately the live search feature couldn’t work with multiple rows of dishes due to a bug in the JS online selectpicker library and hence we dropped the live search feature.
 
-
 # Ratings
 As part of our site experience, we wanted to make it possible for users to rate the Charley's Place menu. After some debate, we aligned on a 'thumbs up' and
 'thumbs down' rating scheme for each dish versus a 5-star rating. Our goal was to create a frictionless user experience, which meant that we didn't want users
