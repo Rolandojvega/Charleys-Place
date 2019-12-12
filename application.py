@@ -66,9 +66,40 @@ def complete():
         if like == None:
             dish_ID = dislike
             db.execute("INSERT INTO feedback (dish_ID, menu_ID, like_dislike) VALUES (:dish_ID, :current, -1)", current = current, dish_ID = dish_ID)
+            oldlikes = db.execute("SELECT likes FROM dishes WHERE ID = :dish_ID", dish_ID = dish_ID)
+            olddislikes = db.execute("SELECT dislikes FROM dishes WHERE ID = :dish_ID", dish_ID = dish_ID)
+            num_oldlikes = (oldlikes[0]['likes'])
+            num_olddislikes = (olddislikes[0]['dislikes'])
+
+            ratings_count = num_oldlikes + num_olddislikes + 1
+            avg = round((num_oldlikes / ratings_count),2)*100
+
+            print(avg)
+            print(ratings_count)
+
+            db.execute("UPDATE dishes SET avg_rating = :avg, count_reviews = :count_reviews WHERE ID = :dish_ID", avg = avg, count_reviews = ratings_count, dish_ID = dish_ID)
+
+
         else:
             dish_ID = like
             db.execute("INSERT INTO feedback (dish_ID, menu_ID, like_dislike) VALUES (:dish_ID, :current, 1)", current = current, dish_ID = dish_ID)
+            oldlikes = db.execute("SELECT likes FROM dishes WHERE ID = :dish_ID", dish_ID = dish_ID)
+            olddislikes = db.execute("SELECT dislikes FROM dishes WHERE ID = :dish_ID", dish_ID = dish_ID)
+            num_oldlikes = (oldlikes[0]['likes'])
+            num_olddislikes = (olddislikes[0]['dislikes'])
+
+            ratings_count = num_oldlikes + num_olddislikes + 1
+            new_likes = num_oldlikes + 1
+            avg = round((new_likes / ratings_count),2)*100
+
+            print(avg)
+            print(ratings_count)
+            print(new_likes)
+
+            db.execute("UPDATE dishes SET avg_rating = :avg, likes = :likes, count_reviews = :count_reviews WHERE ID = :dish_ID", avg = avg, likes = new_likes, count_reviews = ratings_count, dish_ID = dish_ID)
+
+
+
         return render_template("complete.html")
 
 
