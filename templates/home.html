@@ -12,39 +12,83 @@
 <i>Monday - Friday 11:00 AM - 1:30 PM</i>
 
 <h5>{{ today }}</h5>
-<div class ="dishes">
 
+
+<h4>Al Forno</h4>
+<p>
     {% for row in menu %}
+        {% if row['type'] == 'Al Forno' %}
 
-    <h4>{{ row['type'] }}</h4>
-    <div class="row">
-        <div class="col-sm">
-        <b>
             {{ row['name'] }}
-        </b>
-        <br>
-        <i><style></style>
+            <br>
+            <i>
             {{ row['ingredients'] }}
-        <br>
+            <br>
             {{ row['country_of_origin'] }}
-        </i>
-        <br>
-        <b>Rating:</b>
+            </i>
+            <br>
+            <b>Rating:</b>
 
-        <form method="post" action="/complete">
-        <button type="submit" onclick="like()" input id="likebutton" name=like value={{ row['ID'] }} class="btn like_button"><i class="fa fa-thumbs-up"></i></button>
-        <button type="submit" onclick="dislike()" input id="dislikebutton" name=dislike value={{ row['ID'] }} class="btn dislike_button"><i class="fa fa-thumbs-down"></i></button>
+            <form method="post" action="/complete">
+            <button type="submit" onclick="like()" input id="likebutton" name=like value={{ row['ID'] }} class="btn like_button"><i class="fa fa-thumbs-up"></i></button>
+            <button type="submit" onclick="dislike()" input id="dislikebutton" name=dislike value={{ row['ID'] }} class="btn dislike_button"><i class="fa fa-thumbs-down"></i></button>
+            </form>
 
-        </form>
+        {% endif %}
+        {% endfor %}
 
-        </div>
+</p>
 
-    </div>
+<h4>Wok</h4>
+<p>
+    {% for row in menu %}
+        {% if row['type'] == 'Wok' %}
 
+            {{ row['name'] }}
+            <br>
+            <i>
+            {{ row['ingredients'] }}
+            <br>
+            {{ row['country_of_origin'] }}
+            </i>
+            <br>
+            <b>Rating:</b>
+
+            <form method="post" action="/complete">
+            <button type="submit" onclick="like()" input id="likebutton" name=like value={{ row['ID'] }} class="btn like_button"><i class="fa fa-thumbs-up"></i></button>
+            <button type="submit" onclick="dislike()" input id="dislikebutton" name=dislike value={{ row['ID'] }} class="btn dislike_button"><i class="fa fa-thumbs-down"></i></button>
+            </form>
+
+        {% endif %}
     {% endfor %}
-</div>
-</section>
 
 
+</p>
 
-{% endblock %}
+<h4>Salad & Sandwiches</h4>
+<p>
+    {% for row in menu %}
+        {% if row['type'] == 'Salad & Sandwiches' %}
+
+            {{ row['name'] }}
+            <br>
+            <i>
+            {{ row['ingredients'] }}
+            <br>
+            {{ row['country_of_origin'] }}
+            </i>
+            <br>
+            <b>Rating:</b>
+
+            <form method="post" action="/complete">
+            <button type="submit" onclick="like()" input id="likebutton" name=like value={{ row['ID'] }} class="btn like_button"><i class="fa fa-thumbs-up"></i></button>
+            <button type="submit" onclick="dislike()" input id="dislikebutton" name=dislike value={{ row['ID'] }} class="btn dislike_button"><i class="fa fa-thumbs-down"></i></button>
+            </form>
+
+        {% endif %}
+        {% endfor %}
+
+
+</p>
+
+    {% endblock %}
